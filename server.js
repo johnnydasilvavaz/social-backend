@@ -5,8 +5,8 @@ const app = require('./app');
 const normalizePort = val => {
     const port = parseInt(val, 10);
 
-    if (isNaN(port)) {
-        return val;
+    if (port == null || port == "") {
+        return 8000;
     }
     if (port >= 0) {
         return port;
