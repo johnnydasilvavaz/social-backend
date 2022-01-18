@@ -34,7 +34,7 @@ exports.signup = (req, res, next) => {
     const uuid = uuidv4();
     
     db.query(sql, [uuid, req.body.name, req.body.forname, req.body.email, hash, process.env.MYSQL_ENCRYPT], (err, data, fields) => {
-        if (err) return res.status(400).json({err});
+        if (err) return res.status(400).json({err, msg: "Erreur à la création de l'utilisateur"});
         res.status(201).json({message: 'User created !'});
     });
 }
